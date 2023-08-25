@@ -1,0 +1,423 @@
+%done-phase {
+    .icon {
+        display: inline-block;
+    }
+    .text {
+        display: none;
+    }
+}
+%undone-phase {
+    .icon {
+        display: none;
+    }
+    .text {
+        display: inline-block;
+    }
+}
+%current-text {
+    color: var(--progress-current-color);
+}
+%current-icon {
+    @extend %current-text;
+    background-color: transparent;
+    border: 1px solid var(--progress-current-color);
+    @extend %undone-phase;
+}
+%undone-text {
+    color: var(--progress-undone-color);
+}
+%undone-icon {
+    @extend %undone-text;
+    background-color: transparent;
+    border: 1px solid var(--progress-undone-color);
+    @extend %undone-phase;
+}
+%done-text {
+    @extend %current-text;
+}
+%done-icon {
+    color: var(--progress-done-color);
+    background-color: transparent;
+    @extend %done-phase;
+}
+
+section.register-container {
+    h2.register-title {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+        color: var(--main-text);
+    }
+}
+
+section.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 48px;
+
+    .progress-bar {
+        display: flex;
+        flex-grow: 1;
+        max-width: 60px;
+        height: 1px;
+        margin: 0px 8px;
+        border-width: 2px;
+        border-style: solid;
+    }
+
+    .progress-group {
+        display: flex;
+
+        .progress-icon {
+            display: inline-block;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            border-radius: 50%;
+
+            .text {
+                width: inherit;
+                height: inherit;
+                position: absolute;
+                top: 0px;
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 24px;
+                text-align: center;
+                color: inherit;
+            }
+            .icon {
+                width: inherit;
+                height: inherit;
+            }
+        }
+        .progress-label {
+            font-weight: 400;
+            line-height: 24px;
+            color: var(--main-text);
+        }
+    }
+}
+
+$phase-map: (1: 'address', 2: 'shipping', 3: 'credit-card');
+@for $index from 1 to 4 {
+    section.register-container[data-phase="#{$index}"] {
+        // progress-bar
+        .progress-bar {
+            &[data-order='1'] {
+                border-color: var(--done-progress-border);
+            }
+            &[data-order='2'] {
+                @if $index == 1 {
+                    border-color: var(--undone-progress-border);
+                } @else {
+                    border-color: var(--done-progress-border);
+                }
+            }
+        }
+
+        @each $key, $phase in $phase-map {
+            // progress-group
+            .progress-group[data-phase="#{$phase}"] {
+                @if $key > $index {
+                    .progress-icon {
+                        @extend %undone-icon;
+                    }
+                    .progress-label {
+                        @extend %undone-text;
+                    }
+                } @else if $key == $index {
+                    .progress-icon {
+                        @extend %current-icon;
+                    }
+                    .progress-label {
+                        @extend %current-text;
+                    }
+                } @else {
+                    .progress-icon {
+                        @extend %done-icon;
+                    }
+                    .progress-label {
+                        @extend %done-text;
+                    }
+                }
+
+                @if $phase == 'address' {
+                    .progress-icon {
+                        background-color: var(--pg-addr-bg-color);
+                        border-color: var(--pg-addr-bg-color);
+                        .text {
+                            color: var(--pg-addr-color);
+                        }
+                    }
+                }
+            }
+
+            // form
+            form[data-phase="#{$phase}"] {
+                @if $index == $key {
+                    display: flex;   
+                } @else {
+                    display: none;
+                }
+            }
+
+            // progress-control
+            & ~ section.progress-control-container {
+                .button-group[data-phase="#{$phase}"] {
+                    @if $index == $key {
+                        display: flex;   
+                    } @else {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+    
+section.form-container {
+    display: flex;
+    margin-top: 64px;
+
+    h3.form-title {
+        display: flex;
+        flex: 0 0 100%;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 24px;
+    }
+}
+
+section.form-body {
+    .col {
+        justify-content: space-between;
+    }
+
+    .input-group {
+        margin-top: 24px;
+
+        .input-label {
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 16px;
+            color: var(--input-label);
+            margin-bottom: 8px;
+        }
+        .select-container {
+            position: relative;
+            &::after {
+                position: absolute;
+                top: 50%;
+                right: 12px;
+                transform: translateY(-50%);
+                z-index: -2;
+                pointer-events: none;
+                border-style: solid;
+                border-width: 6px 5px 0 5px;
+                border-color: var(--select-arrow) transparent transparent transparent;
+                content: "";
+            }
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 16px;
+            font-weight: 400;
+            font-size: 12px;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 16px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background-color: transparent;
+        }
+        input {
+            color: var(--input-text);
+        }
+        select {
+            color: var(--select-true);
+            background-color: transparent;
+
+            &:required:invalid {
+                color: var(--select-false);
+            }
+            cursor: pointer;
+            -webkit-appearance: none;
+
+            option {
+                &[value=""][disabled] {
+                    display: none;
+                }
+                color: var(--select-true);
+            }
+        }
+    }
+
+    .radio-group {
+        position: relative;
+        justify-content: unset;
+        padding: 11px 20px;
+        margin-top: 24px;
+        cursor: pointer;
+
+        input[type='radio'] {
+            width: 20px;
+            height: 20px;
+            margin-right: 20px;
+            align-self: center;
+            -webkit-appearance: none;
+        }
+
+        input[type='radio']::before {
+            content: '';
+            display: block;
+            width: inherit;
+            height: inherit;
+            border: 1px solid #222222;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+        }
+
+        input[type='radio']:checked::before {
+            border: 6px solid #2A2A2A;
+            background-color: #FFFFFF;
+        }
+
+        .radio-info {
+            display: flex;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            align-content: center;
+
+            .col {
+                margin-bottom: 2px;
+            }
+            .text {
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 20px;
+            }
+            .price, .period {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+
+        .radio-box-border {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        input[type='radio'] ~ .radio-box-border {
+            border-radius: 4px;
+            border: 1px solid #F0F0F5;
+        }
+        input[type='radio']:checked ~ .radio-box-border {
+            border: 1px solid #2A2A2A;
+        }
+
+        #shipping-standard ~ .radio-info .shipping-text {
+            font-weight: normal;
+        }
+        #shipping-dhl ~ .radio-info .shipping-text {
+            font-weight: 700;
+        }
+    }
+}
+
+section.progress-control-container {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+section.button-group {
+    padding-top: 24px;
+    border-top: 1px solid #E6E6EB;
+
+    button {
+        display: flex;
+        align-items: center;
+        height: 46px;
+        font-family: Inter, sans-serif;
+        font-size: 14px;
+        border-radius: 8px;
+        border-width: 0px;
+        padding: 0px;
+
+        & > svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        &.prev {
+            background-color: transparent;
+            line-height: 20px;
+            font-weight: 400;
+            color: #000000;
+
+            > svg {
+                margin-right: 12px;
+            }
+        }
+        &.next {
+            justify-content: center;
+            width: 174px;
+            font-weight: 500;
+            line-height: 17px;
+            background: var(--pink);
+            color: #FFFFFF;
+            margin-left: auto;
+
+            > svg {
+                margin-left: 12px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $screen-break-point) {
+    section.progress-container {
+        margin-top: 24px;
+
+        .progress-group {
+            .progress-icon {
+                width: 32px;
+                height: 32px;
+                margin-right: 0px;
+
+                .text {
+                    line-height: 32px;
+                }
+            }
+        }
+        .progress-label {
+            display: none;
+        }
+    }
+    section.form-container {
+        margin-top: 24px;
+    }
+    section.progress-control-container {
+        position: relative;
+        margin-top: 24px;
+        margin-bottom: 40px;
+    }
+    section.button-group {
+        button.next {
+            width: 156px;
+        }
+
+        &[data-phase='address'] {
+            button.next {
+                width: 100%;
+            }
+        }
+    }
+}

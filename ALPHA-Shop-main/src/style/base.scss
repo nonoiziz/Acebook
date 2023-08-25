@@ -1,0 +1,102 @@
+$screen-break-point: 749.5px;
+
+:root {
+    --white: #FFFFFF;
+    --pink: #F67599;
+    --grey-800: #2A2A2A;
+    --grey-700: #333333;
+    --grey-400: #808080;
+    --grey-300: #999999;
+
+    --site-edge-margin: 15px;
+
+    --main-font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+    --background-color: #FFFFFF;
+    --footer-background-color: #F6F7F8;
+    --nav-icon: #2A2A2A;
+    --social-icon: #808080;
+    --main-text: #2A2A2A;
+    --secondary-text: #808080;
+    --active-color: lightblue;
+
+    --undone-progress-border: #F0F0F5;
+    --done-progress-border: #000000;
+    --progress-current-color: #2A2A2A;
+    --progress-done-color: #FFFFFF;
+    --progress-undone-color: #AFB1BD;
+    --pg-addr-color: #FFFFFF;
+    --pg-addr-bg-color: #2A2A2A;
+    --input-label: #808080;
+    --input-border: #4A4A4A;
+    --input-text: #999999;
+    --select-arrow: #2A2A2A;
+    --select-true: #2A2A2A;
+    --select-false: #999999;
+    --product-action-text: #000000;
+    --product-action-bg: #F0F0F5;
+    --left-arrow: #000000;
+
+    background-color: var(--background-color);
+    color: var(--main-text);
+    font-family: var(--main-font-family);
+    font-size: 16px;
+    user-select: none;
+}
+
+ul, ol, li {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    margin: 0px 15px;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+.mr-auto {
+    margin-right: auto !important;
+}
+.cursor-point {
+    cursor: pointer;
+}
+
+@mixin col-series($serial) {
+    display: flex;
+    flex-wrap: wrap;
+    $width: 100% / 12 * $serial;
+    flex: 0 0 $width;
+    align-content: flex-start;
+    max-width: $width;
+}
+.col {
+    @for $index from 1 to 13 {
+        &.col-#{$index} {
+            @include col-series($index);
+        }
+    }
+}
+@media screen and (min-width: $screen-break-point) {
+    .col {
+        @for $index from 1 to 13 {
+            &.col-lg-#{$index} {
+                @include col-series($index);
+            }
+        }
+    }
+}
+@media screen and (max-width: $screen-break-point) {
+    .col {
+        @for $index from 1 to 13 {
+            &.col-sm-#{$index} {
+                @include col-series($index);
+            }
+        }
+    }
+}

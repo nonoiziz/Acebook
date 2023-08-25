@@ -1,0 +1,101 @@
+body[data-theme='light'] {
+    // header
+    #theme-toggle > svg {
+        &:nth-child(1) {
+            display: inline;
+        }
+        &:nth-child(2) {
+            display: none;
+        }
+    }
+}
+
+body[data-theme='dark'] {
+    --background-color: #121212;
+    --footer-background-color: #333333;
+    --nav-icon: rgba(255, 255, 255, 0.8);
+    --social-icon: rgba(255, 255, 255, 0.5);
+    --main-text: #FFFFFF;
+    --secondary-text: rgba(255, 255, 255, 0.6);
+
+    --undone-progress-border: rgba(240, 240, 245, 0.4);
+    --done-progress-border: #FFFFFF;
+    --progress-current-color: #FFFFFF;
+    --progress-done-color: #FFFFFF;
+    --progress-undone-color: #717171;
+    --pg-addr-color: #FFFFFF;
+    --pg-addr-bg-color: #333333;
+    --input-label: rgba(255, 255, 255, 0.4);
+    --input-border: #5E5E5E;
+    --input-text: rgba(255, 255, 255, 0.3);
+    --select-arrow: #5E5E5E;
+    --select-true: #FFFFFF;
+    --select-false: rgba(255, 255, 255, 0.3);
+    --product-action-text: #333333;
+    --product-action-bg: #808080;
+    --left-arrow: #FFFFFF;
+
+    // header
+    #theme-toggle > svg {
+        &:nth-child(1) {
+            display: none;
+        }
+        &:nth-child(2) {
+            display: inline;
+        }
+    }
+
+    // register
+    section.form-body {
+        .radio-group {
+            input[type='radio']::before {
+                border: none;
+                border-radius: 50%;
+                background-color: #333333;
+            }
+    
+            input[type='radio']:checked::before {
+                border: 6px solid #333333;
+                background-color: #FFFFFF;
+            }
+
+            .radio-info {
+                .shipping-period {
+                    color: rgba(255, 255, 255, 0.4);
+                }
+            }
+
+            input[type='radio'] ~ .radio-box-border {
+                border-color: #5E5E5E;
+            }
+            input[type='radio']:checked ~ .radio-box-border {
+                border-color: #FFFFFF;
+            }
+        }
+    }
+
+    // cart
+    section.cart-container {
+        background-color: #383838;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    section.cart-info {
+        border-top-color: rgba(255, 255, 255, 0.2);
+
+        .price {
+            color: #FFFFFF;
+        }
+    }
+
+    // progress-control
+    section.progress-control-container {
+        section.button-group {
+            button {
+                &.prev {
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
