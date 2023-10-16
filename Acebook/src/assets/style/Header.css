@@ -1,0 +1,15 @@
+.header-container{
+  width: 476px;
+  height: 100px;
+  background-color: salmon;
+  color: black;
+  
+  position: fixed;
+  top: 0;
+}
+
+.header-wrapper, .items-container {
+  display: flex;
+  justify-content: space-between;
+}
+
