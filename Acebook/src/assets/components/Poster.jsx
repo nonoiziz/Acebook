@@ -21,8 +21,8 @@ function Poster() {
           </div>
         </div>
         <div className="poster-context">
-          <div className="poster-text">1</div>
-          <div className="poster-photo"></div>
+          <div className="poster-text">111</div>
+          <div className="poster-photo">22</div>
         </div>
         <div className="poster-state">
           <div className="emoji"></div>
