@@ -1,4 +1,29 @@
 .postArea-container{
   margin-top: 100px;
+  height: 60px;
+  
+  padding: 0.5rem;
 }
 
+.postArea-wrapper{
+  height: 100%;
+  line-height:60px;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 20px;
+  /* border: 2px solid tomato; */
+}
+
+.poster-area{
+  text-align: start;
+}
+
+.card-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+input{
+  border: 0;
+}

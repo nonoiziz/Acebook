@@ -4,17 +4,17 @@ function Footer() {
   return (
     <div className="footer-container">
       <div className="footer-wrapper">
-        <div className="index-buttom-container">
-          <div className="index-buttom-image"></div>
-          <div className="index-buttom-text">首頁</div>
+        <div className="index-button-container">
+          <div className="index-button-image"></div>
+          <div className="index-button-text">首頁</div>
         </div>
-        <div className="friends-buttom-container">
-          <div className="friends-buttom-image"></div>
-          <div className="friends-buttom-text">朋友</div>
+        <div className="friends-button-container">
+          <div className="friends-button-image"></div>
+          <div className="friends-button-text">朋友</div>
         </div>
-        <div className="notic-buttom-container">
-          <div className="notic-buttom-image"></div>
-          <div className="notic-text">通知</div>
+        <div className="notice-button-container">
+          <div className="notice-button-image"></div>
+          <div className="notice-text">通知</div>
         </div>
         <div className="footer-menu-container">
           <div className="footer-menu-image"></div>

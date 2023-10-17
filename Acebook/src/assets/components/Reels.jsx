@@ -1,11 +1,32 @@
 import '../style/Reels.css'
+import ReelsCards from './ReelsCards'
+
+
 
 function Reels() {
+  
   return (
-    <div className="ReelsContiner">
-      <div className="CardContainer">
-        <div className="Cards">
-          <div className="Card">Card</div>
+    <div className="reels-container">
+      <div className="card-container">
+        <div className="cards">
+          <div className="card">
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           <ReelsCards />
+           
+
+          </div>
         </div>
       </div>
     </div>

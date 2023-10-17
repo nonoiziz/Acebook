@@ -1,0 +1,44 @@
+.poster-container{
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.poster-context{
+  flex: 1;
+  /* border: 2px solid darkcyan; */
+  height: 300px;
+  text-align: start;
+  padding: 15px;
+}
+
+.poster-header{
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr ;
+  grid-template-rows: 1fr;
+  padding: 10px;
+  align-items: center;
+}
+
+.poster-infoCard{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.poster-picture{
+  /* border: 2px solid pink; */
+  
+}
+
+.feedback-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu-tag{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+}

@@ -1,0 +1,24 @@
+.reels-container{
+  margin: 20px 0;
+  padding: 0;
+  height: 150px;
+  border-top: 10px solid rgb(194, 191, 191);
+  border-bottom: 10px solid rgb(194, 191, 191);
+}
+
+.cards{
+  display: flex;
+  align-items: center;
+  
+}
+
+.card{
+  /* border: 2px solid darkorchid; */
+    display: grid;
+    grid-template-columns: repeat(20, 100px);
+    grid-template-rows: 1fr;
+    /* border: 2px solid navajowhite; */
+    grid-gap: 1px;
+    overflow-x: auto;
+}
+
