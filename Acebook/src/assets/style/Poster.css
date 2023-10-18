@@ -3,6 +3,12 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  
+}
+.poster-wrapper{
+  border-bottom: 10px solid darkgray;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .poster-context{
@@ -12,6 +18,8 @@
   text-align: start;
   padding: 15px;
   margin-left: 20px;
+  border-bottom: 2px solid darkgray;
+  margin-bottom: 10px;
 }
 
 .poster-header{
@@ -37,6 +45,7 @@
 .feedback-container{
   display: flex;
   justify-content: space-around;
+  margin-bottom: 10px;
 }
 
 .menu-tag{

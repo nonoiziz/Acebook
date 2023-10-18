@@ -1,7 +1,6 @@
 import '../style/Reels.css'
 import ReelsCards from './ReelsCards'
 
-
 function Reels() {
   return (
     <div className="reels-container">
