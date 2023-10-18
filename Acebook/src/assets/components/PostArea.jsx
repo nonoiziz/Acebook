@@ -16,7 +16,7 @@ export default function PostArea() {
           </div>
         </div>
         <div className="photoPoster-container">
-          <div className="photo-poster"><i class="fa-regular fa-image"></i></div>
+          <div className="photo-poster"><i className="fa-regular fa-image"></i></div>
         </div>
       </div>
     </div>
