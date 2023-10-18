@@ -16,8 +16,8 @@ function Poster() {
             <div className="poster-info">{myData.results[2].location.city}</div>
           </div>
           <div className="menu-tag">
-            <div className="menu">...</div>
-            <div className="delete">X</div>
+            <div className="menu"><i class="fa-solid fa-list"></i></div>
+            <div className="delete"><i class="fa-solid fa-x"></i></div>
           </div>
         </div>
         <div className="poster-context">
@@ -29,9 +29,9 @@ function Poster() {
           <div className="message-length"></div>
         </div>
         <div className="feedback-container">
-          <div className="emoji-selector">讚</div>
-          <div className="leave-message">留言</div>
-          <div className="share">分享</div>
+          <div className="emoji-selector"><i class="fa-regular fa-heart">讚</i></div>
+          <div className="leave-message"><i class="fa-regular fa-comment">留言</i></div>
+          <div className="share"><i class="fa-regular fa-share-from-square">分享</i></div>
         </div>
       </div>
     </div>

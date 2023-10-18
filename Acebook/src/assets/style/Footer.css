@@ -11,6 +11,13 @@
 .footer-wrapper{
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  grid-template-rows: 50px;
-  line-height: 50px;
+  grid-template-rows: 40px;
+  line-height: 20px;
+margin-top:8px;
 }
+
+/* .index-button-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+} */

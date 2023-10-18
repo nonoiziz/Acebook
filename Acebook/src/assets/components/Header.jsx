@@ -7,17 +7,17 @@ export default function Header() {
       <div className="acebook-logo"><h2>Acebook</h2></div>
       <div className="items-container">
         <div className="publish-button-container aa">
-          <button className="publish-but btn">+</button>
+          <button className="publish-but btn"><i class="fa-solid fa-plus"></i></button>
           <div className="circle-contain"></div>
         </div>
 
         <div className="search-button-container aa">
-          <button className="search-but btn">0</button>
+          <button className="search-but btn"><i class="fa-solid fa-magnifying-glass"></i></button>
           <div className="circle-contain"></div>
         </div>
 
         <div className="message-button-container aa"> 
-          <button className="message-but btn">M</button>
+          <button className="message-but btn"><i class="fa-solid fa-user"></i></button>
           <div className="circle-contain"></div>
         </div>
       </div>
