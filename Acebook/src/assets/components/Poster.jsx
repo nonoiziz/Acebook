@@ -3,12 +3,12 @@ import { useMyData } from '../context/UserData';
 import { getRandomInt } from '../context/Function'
 
 
-function Poster({listMessage}) {
+function Poster({message}) {
    const myData = useMyData();
    if (myData && myData.results && myData.results.length > 0) {
   return (
     <div className="poster-container">
-      {listMessage.map(message => 
+      {message.map(message => 
       <div className="poster-wrapper" key={message.id}>
         <div className="poster-header">
           <div className="poster-picture">

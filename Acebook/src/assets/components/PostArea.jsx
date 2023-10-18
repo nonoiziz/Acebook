@@ -3,12 +3,15 @@ import { useMyData } from '../context/UserData';
 import { getRandomInt } from '../context/Function';
 
 
-export default function PostArea({add}) {
+export default function PostArea({ setInputText, inputText, handlePostSubmit}) {
   const myData = useMyData();
 
-  function add(){
-    
-  }
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && inputText.length > 0) {
+      handlePostSubmit(inputText);
+    }
+  };
+
 
    if (myData && myData.results && myData.results.length > 0) {
   return (
@@ -22,7 +25,10 @@ export default function PostArea({add}) {
             <input 
               className="poster-area-input" 
               type='text' 
-              placeholder='在想些什麼'></input>
+              placeholder='在想些什麼'
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              onKeyDown={handleKeyPress}></input>
           </div>
         </div>
         <div className="photoPoster-container">
