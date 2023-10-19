@@ -18,8 +18,6 @@ function App() {
     {id: 169762, text: 'gogo', avatar: 'https://randomuser.me/api/portraits/thumb/men/59.jpg' , city: 'Korea'}
   ]) 
   
- 
-  
   const handlePostSubmit = (newText) => {
     const id = Date.now()
     const newPost = {id, text: newText, avatar: 'https://randomuser.me/api/portraits/thumb/women/99.jpg', city: 'Taipei'}
@@ -28,7 +26,8 @@ function App() {
   }
 
   const handleMessageDelete = (id) => {
-    console.log(id)
+    const deleteText = message.filter((message) => id !== message.id);
+    setMessage(deleteText)
   }
 
   return(
@@ -43,7 +42,7 @@ function App() {
       <MyVideoProvider>
       <Reels />
       </MyVideoProvider>
-      <Poster message={message} onClick={handleMessageDelete}/>
+      <Poster message={message} handleMessageDelete={handleMessageDelete}/>
       <Footer />
       </MyDataProvider>
     </Fragment>

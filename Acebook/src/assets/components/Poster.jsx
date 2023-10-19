@@ -19,7 +19,7 @@ function Poster({message, handleMessageDelete}) {
           </div>
           <div className="menu-tag">
             <div className="menu"><i className="fa-solid fa-list"></i></div>
-            <div className="delete" onClick={handleMessageDelete}><i className="fa-solid fa-x"></i></div>
+            <div className="delete" onClick={() =>handleMessageDelete(message.id)}><i className="fa-solid fa-x"></i></div>
           </div>
         </div>
         <div className="poster-context">
