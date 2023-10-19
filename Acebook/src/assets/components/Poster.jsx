@@ -14,7 +14,7 @@ function Poster({message, handleMessageDelete}) {
             <img src={message.avatar} alt='User' className="card-image1" />
             </div>
           <div className="poster-infoCard">
-            <div className="poster-title">報廢公社</div>
+            <div className="poster-title">今天中午吃什麼社團</div>
             <div className="poster-info">{message.city}</div>
           </div>
           <div className="menu-tag">

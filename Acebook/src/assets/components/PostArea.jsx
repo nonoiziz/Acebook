@@ -1,6 +1,6 @@
 import '../style/PostArea.css'
 import { useMyData } from '../context/UserData';
-import { getRandomInt } from '../context/Function';
+
 
 
 export default function PostArea({ setInputText, inputText, AddNewPost}) {

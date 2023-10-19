@@ -14,12 +14,16 @@
 .poster-context{
   flex: 1;
   /* border: 2px solid darkcyan; */
-  height: 300px;
+  height: auto;
   text-align: start;
   padding: 15px;
   margin-left: 20px;
   border-bottom: 2px solid darkgray;
   margin-bottom: 10px;
+}
+
+.poster-title{
+  font-weight: 900;
 }
 
 .poster-header{
@@ -37,6 +41,7 @@
   margin-left: 10px;
 }
 
+
 .poster-picture{
   /* border: 2px solid pink; */
   
@@ -46,6 +51,10 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 10px;
+}
+
+.poster-text {
+  font-size: 30px;
 }
 
 .menu-tag{
