@@ -3,12 +3,11 @@ import { useMyData } from '../context/UserData';
 import { getRandomInt } from '../context/Function';
 
 
-export default function PostArea({ setInputText, inputText, handlePostSubmit}) {
+export default function PostArea({ setInputText, inputText, AddNewPost}) {
   const myData = useMyData();
-
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && inputText.length > 0) {
-      handlePostSubmit(inputText);
+      AddNewPost(inputText);
     }
   };
 
@@ -18,7 +17,7 @@ export default function PostArea({ setInputText, inputText, handlePostSubmit}) {
     <div className="postArea-container">
       <div className="postArea-wrapper">
         <div className="userProfile-container">
-          <img src={myData.results[getRandomInt(100)].picture.thumbnail} alt='User' className="card-image" />
+          <img src={'https://randomuser.me/api/portraits/thumb/women/99.jpg'} alt='User' className="card-image" />
         </div>
         <div className="poster-container">
           <div className="poster-area">

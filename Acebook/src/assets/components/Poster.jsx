@@ -1,9 +1,8 @@
 import '../style/Poster.css'
 import { useMyData } from '../context/UserData';
-import { getRandomInt } from '../context/Function'
+import { getRandomInt} from '../context/Function'
 
-
-function Poster({message}) {
+function Poster({message, handleMessageDelete}) {
    const myData = useMyData();
    if (myData && myData.results && myData.results.length > 0) {
   return (
@@ -12,15 +11,15 @@ function Poster({message}) {
       <div className="poster-wrapper" key={message.id}>
         <div className="poster-header">
           <div className="poster-picture">
-            <img src={myData.results[getRandomInt(100)].picture.thumbnail} alt='User' className="card-image" />
+            <img src={message.avatar} alt='User' className="card-image1" />
             </div>
           <div className="poster-infoCard">
             <div className="poster-title">報廢公社</div>
-            <div className="poster-info">{myData.results[getRandomInt(100)].location.city}</div>
+            <div className="poster-info">{message.city}</div>
           </div>
           <div className="menu-tag">
             <div className="menu"><i className="fa-solid fa-list"></i></div>
-            <div className="delete"><i className="fa-solid fa-x"></i></div>
+            <div className="delete" onClick={handleMessageDelete}><i className="fa-solid fa-x"></i></div>
           </div>
         </div>
         <div className="poster-context">

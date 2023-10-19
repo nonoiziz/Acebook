@@ -9,20 +9,26 @@ import { MyDataProvider } from '../context/UserData'
 import { MyVideoProvider } from '../context/VideoData'
 import { useState } from 'react'
 
-
 function App() {
+
   const [inputText, setInputText] = useState('');
   const [message, setMessage ] = useState([
-    {id: 16976, text: 'hi' }, 
-    {id: 169761, text: 'yoyo' }, 
-    {id: 169762, text: 'gogo' }
+    {id: 16976, text: 'hi' ,avatar: 'https://randomuser.me/api/portraits/thumb/women/64.jpg' ,city: 'USA'}, 
+    {id: 169761, text: 'yoyo', avatar: 'https://randomuser.me/api/portraits/thumb/men/61.jpg', city: 'Japan' }, 
+    {id: 169762, text: 'gogo', avatar: 'https://randomuser.me/api/portraits/thumb/men/59.jpg' , city: 'Korea'}
   ]) 
+  
+ 
   
   const handlePostSubmit = (newText) => {
     const id = Date.now()
-    const newPost = {id, text: newText}
+    const newPost = {id, text: newText, avatar: 'https://randomuser.me/api/portraits/thumb/women/99.jpg', city: 'Taipei'}
     setMessage([newPost, ...message]);
     setInputText('')
+  }
+
+  const handleMessageDelete = (id) => {
+    console.log(id)
   }
 
   return(
@@ -32,12 +38,12 @@ function App() {
       <PostArea 
         inputText={inputText}
         setInputText={setInputText}
-        handlePostSubmit={handlePostSubmit}
+        AddNewPost={handlePostSubmit}
         />
       <MyVideoProvider>
       <Reels />
       </MyVideoProvider>
-      <Poster message={message}/>
+      <Poster message={message} onClick={handleMessageDelete}/>
       <Footer />
       </MyDataProvider>
     </Fragment>
