@@ -1,13 +1,25 @@
 import '../style/Poster.css'
 import { useMyData } from '../context/UserData';
 import { getRandomInt} from '../context/Function'
+import {useState} from 'react'
 
 function Poster({message, handleMessageDelete}) {
-   const myData = useMyData();
-   if (myData && myData.results && myData.results.length > 0) {
+   const myData = useMyData()
+   const [isLikedMap, setIsLikedMap] = useState({});
+    
+   const handleLikeClick = (messageId) => {
+    setIsLikedMap((prevIsLikedMap) => ({
+      ...prevIsLikedMap,
+      [messageId]: !prevIsLikedMap[messageId],
+    }));
+  };
+  
+   
+    if (myData && myData.results && myData.results.length > 0) {
   return (
     <div className="poster-container">
-      {message.map(message => 
+      {message.map((message) => { 
+      return (
       <div className="poster-wrapper" key={message.id}>
         <div className="poster-header">
           <div className="poster-picture">
@@ -31,13 +43,18 @@ function Poster({message, handleMessageDelete}) {
           <div className="message-length"></div>
         </div>
         <div className="feedback-container">
-          <div className="emoji-selector"><i className="fa-regular fa-heart">讚</i></div>
-          <div className="leave-message"><i className="fa-regular fa-comment">留言</i></div>
-          <div className="share"><i className="fa-regular fa-share-from-square">分享</i></div>
+          <div className="emoji-selector">
+            <i 
+            className={`fa-regular ${ isLikedMap[message.id] ? "fa-solid fa-heart" : "fa-heart"} `} 
+            onClick={() => handleLikeClick(message.id)}>讚</i></div>
+          <div className="leave-message"><i className="fa-regular fa-comment" >留言</i></div>
+          <div className="share"><i className="fa-regular fa-share-from-square" >分享</i></div>
         </div>
-      </div>)}
+      </div>
+      )
+      })}
     </div>
   )
-}
+      }
 }
 export default Poster

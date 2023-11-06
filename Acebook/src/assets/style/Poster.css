@@ -8,7 +8,7 @@
 .poster-wrapper{
   border-bottom: 10px solid darkgray;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .poster-context{
@@ -17,9 +17,10 @@
   height: auto;
   text-align: start;
   padding: 15px;
-  margin-left: 20px;
+  margin:0 20px;
   border-bottom: 2px solid darkgray;
   margin-bottom: 10px;
+  
 }
 
 .poster-title{
@@ -72,3 +73,4 @@
   height: 50px;
   margin-left: 5px;
 }
+
